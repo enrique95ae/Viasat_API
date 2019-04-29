@@ -3,15 +3,9 @@
       "_id": "0001",
       "first_name":"Enrique",
       "last_name":"Alonso-Esposito",
-      "permission_level":2,
+      "permission_level":4,
       "recently_viewed":[""],
-      "personal_notes":
-      [{
-        "date":"",
-        "time":"",
-        "note":""
-      }],
-      "recently_commented":[""],
+      "personal_notes":[""],
       "favorites":[""]
   },
   {
@@ -20,13 +14,7 @@
       "last_name":"Joy",
       "permission_level":3,
       "recently_viewed":[""],
-      "personal_notes":
-      [{
-        "date":"",
-        "time":"",
-        "note":""
-      }],
-      "recently_commented":[""],
+      "personal_notes":[""],
       "favorites":[""]
   },
   {
@@ -35,13 +23,7 @@
       "last_name":"Kim",
       "permission_level":1,
       "recently_viewed":[""],
-      "personal_notes":
-      [{
-      "date":"",
-      "time":"",
-      "note":""
-      }],
-      "recently_commented":[""],
+      "personal_notes":[""],
       "favorites":[""]
   },
   {
@@ -50,13 +32,7 @@
     "last_name":"Castilla",
     "permission_level":1,
     "recently_viewed":[""],
-    "personal_notes":
-    [{
-      "date":"",
-      "time":"",
-      "note":""
-    }],
-    "recently_commented":[""],
+    "personal_notes":[""],
     "favorites":[""]
   },
   {
@@ -65,13 +41,7 @@
     "last_name":"Cavins",
     "permission_level":1,
     "recently_viewed":[""],
-    "personal_notes":
-    [{
-      "date":"",
-      "time":"",
-      "note":""
-    }],
-    "recently_commented":[""],
+    "personal_notes":[""],
     "favorites":[""]
   },
   {
@@ -80,28 +50,16 @@
     "last_name":"Strickland",
     "permission_level":5,
     "recently_viewed":[""],
-    "personal_notes":
-    [{
-      "date":"",
-      "time":"",
-      "note":""
-    }],
-    "recently_commented":[""],
+    "personal_notes":[""],
     "favorites":[""]
   },  
   {
-    "_id": "000",
+    "_id": "0007",
     "first_name":"Yuan Yuan",
     "last_name":"Jiang",
     "permission_level":4,
     "recently_viewed":[""],
-    "personal_notes":
-    [{
-      "date":"",
-      "time":"",
-      "note":""
-    }],
-    "recently_commented":[""],
+    "personal_notes":[""],
     "favorites":[""]
   }
 ]
