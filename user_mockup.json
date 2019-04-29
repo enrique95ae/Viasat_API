@@ -5,7 +5,6 @@
       "last_name":"Alonso-Esposito",
       "permission_level":4,
       "recently_viewed":[""],
-      "personal_notes":[""],
       "favorites":[""]
   },
   {
@@ -14,7 +13,6 @@
       "last_name":"Joy",
       "permission_level":3,
       "recently_viewed":[""],
-      "personal_notes":[""],
       "favorites":[""]
   },
   {
@@ -22,17 +20,15 @@
       "first_name":"Sara",
       "last_name":"Kim",
       "permission_level":1,
-      "recently_viewed":[""],
-      "personal_notes":[""],
+      "recently_viewed":[""],         
       "favorites":[""]
-  },
+  }
   {
     "_id": "0004",
     "first_name":"Ronalyn",
     "last_name":"Castilla",
     "permission_level":1,
     "recently_viewed":[""],
-    "personal_notes":[""],
     "favorites":[""]
   },
   {
@@ -41,7 +37,6 @@
     "last_name":"Cavins",
     "permission_level":1,
     "recently_viewed":[""],
-    "personal_notes":[""],
     "favorites":[""]
   },
   {
@@ -50,7 +45,6 @@
     "last_name":"Strickland",
     "permission_level":5,
     "recently_viewed":[""],
-    "personal_notes":[""],
     "favorites":[""]
   },  
   {
@@ -59,7 +53,6 @@
     "last_name":"Jiang",
     "permission_level":4,
     "recently_viewed":[""],
-    "personal_notes":[""],
     "favorites":[""]
   }
 ]
