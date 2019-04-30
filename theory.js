@@ -20,7 +20,6 @@ app.post("/partialobj", (req, res, next) => {
 			 db.close();
 		     });		 
 	     });
-	 ///////
     });
 app.post("/searchbyid", (req, res, next) => {
 	console.log('Query: ', req.query);
@@ -35,7 +34,6 @@ app.post("/searchbyid", (req, res, next) => {
 			db.close();
 		    });
 	    });
-	
     });
 //////
 app.post("/contains", (req, res, next) => {
@@ -51,7 +49,6 @@ app.post("/contains", (req, res, next) => {
 			db.close();
 		    });
 	    });
-
     });
 //////
 app.post("addnoteitem", (req, res, next) => {
@@ -117,7 +114,6 @@ app.post("/getnotes", (req, res, next) => {
                         db.close();
                     });
             });
-
     });
 //////
 app.post("/notebyid", (req, res, next) => {
@@ -136,7 +132,7 @@ app.post("/notebyid", (req, res, next) => {
 
     });
 //////
-app.post("/getuser", (req, res, next) => {
+app.post("/returnuser", (req, res, next) => {
 	console.log('body: ', req.body);
 	var key=ObjectId(req.body._id);
 	MongoClient.connect(gurl,{useNewUrlParser: true }, function(err, db) {
