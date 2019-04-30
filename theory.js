@@ -70,7 +70,7 @@ app.post("addnoteitem", (req, res, next) => {
         MongoClient.connect(gurl,{useNewUrlParser: true }, function(err, db) {
                 if (err)
                     throw err;
-                var dbo = db.db("entries");
+                var dbo = db.db("mockdb");
                 dbo.collection("entry").insertOne({"author":req.body.author,"note":req.body.note,"belongs_to":req.body.belongs_to,"date":date_time}, function(err, result) {
 			if (err) throw err;
 			console.log("1 document inserted");
@@ -95,7 +95,7 @@ app.post("/addnoteuser", (req, res, next) => {
          MongoClient.connect(gurl,{useNewUrlParser: true }, function(err, db) {
                              if (err)
                              throw err;
-                             var dbo = db.db("entries");
+                             var dbo = db.db("mockdb");
                              dbo.collection("entry").insertOne({"author":req.body.author,"note":req.body.note,"belongs_to":req.body.belongs_to,"date":date_time}, function(err, result) {
 				     if (err) throw err;
 				     console.log("1 document inserted");
@@ -110,8 +110,8 @@ app.post("/getnotes", (req, res, next) => {
         MongoClient.connect(gurl,{useNewUrlParser: true }, function(err, db) {
                 if (err)
                     throw err;
-                var dbo = db.db("entries");
-                dbo.collection("entry").find({"belongs_to":key}).toArray(function(err, result){
+                var dbo = db.db("mockdb");
+                dbo.collection("notes").find({"belongs_to":key}).toArray(function(err, result){
                         if (err) throw err;
                         res.json(result);
                         db.close();
@@ -127,7 +127,7 @@ app.post("/notebyid", (req, res, next) => {
                 if (err)
                     throw err;
                 var dbo = db.db("mockdb");
-                dbo.collection("users").find(key).toArray(function(err, result) {
+                dbo.collection("notes").find(key).toArray(function(err, result) {
                         if (err) throw err;
                         res.json(result);
                         db.close();
