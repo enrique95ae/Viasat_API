@@ -136,6 +136,22 @@ app.post("/notebyid", (req, res, next) => {
 
     });
 //////
+app.post("/getuser", (req, res, next) => {
+	console.log('body: ', req.body);
+	var key=ObjectId(req.body._id);
+	MongoClient.connect(gurl,{useNewUrlParser: true }, function(err, db) {
+		if (err)
+		    throw err;
+		var dbo = db.db("mockdb");
+		dbo.collection("users").find(key).toArray(function(err, result) {
+			if (err) throw err;
+			res.json(result);
+			db.close();
+		    });
+	    });
+	
+    });
+//////
 app.post("/addfavorite", (req, res, next) => {
     console.log('body: ', req.body);
     var query=req.body;//search by all parameters given in
