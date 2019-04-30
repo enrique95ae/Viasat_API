@@ -51,7 +51,7 @@ app.post("/contains", (req, res, next) => {
 	    });
     });
 //////
-app.post("addnoteitem", (req, res, next) => {
+app.post("/addnoteitem", (req, res, next) => {
         console.log('body: ', req.body);
         var query=req.body;//search by all parameters given in
         var searchId=ObjectId(req.body._id);        
