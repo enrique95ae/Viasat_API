@@ -71,7 +71,7 @@ app.post("addnoteitem", (req, res, next) => {
                 if (err)
                     throw err;
                 var dbo = db.db("mockdb");
-                dbo.collection("entry").insertOne({"author":req.body.author,"note":req.body.note,"belongs_to":req.body.belongs_to,"date":date_time}, function(err, result) {
+                dbo.collection("notes").insertOne({"author":req.body.author,"note":req.body.note,"belongs_to":req.body.belongs_to,"date":date_time}, function(err, result) {
 			if (err) throw err;
 			console.log("1 document inserted");
 			db.close();
@@ -96,7 +96,7 @@ app.post("/addnoteuser", (req, res, next) => {
                              if (err)
                              throw err;
                              var dbo = db.db("mockdb");
-                             dbo.collection("entry").insertOne({"author":req.body.author,"note":req.body.note,"belongs_to":req.body.belongs_to,"date":date_time}, function(err, result) {
+                             dbo.collection("notes").insertOne({"author":req.body.author,"note":req.body.note,"belongs_to":req.body.belongs_to,"date":date_time}, function(err, result) {
 				     if (err) throw err;
 				     console.log("1 document inserted");
 				     db.close();
@@ -156,17 +156,16 @@ app.post("/addfavorite", (req, res, next) => {
     console.log('body: ', req.body);
     var query=req.body;//search by all parameters given in
     var searchId=ObjectId(req.body._id);
-    //                                                                                                    
-    var auth=req.body.author;
-var newfav=req.body.new_fav;
+    //
+    var item_id=req.body.item_id;
     //
     MongoClient.connect(gurl,{useNewUrlParser: true }, function(err, db) {
             if (err)
                 throw err;
             var dbo = db.db("mockdb");
-            dbo.collection("users").updateOne({"_id":searchId},{"$push":{"favorites":req.body.new_fav}},function(err, result) {
+            dbo.collection("users").updateOne({"_id":searchId},{"$push":{"favorites":req.body.item_id}},function(err, result) {
                     if (err) throw err;
-                    res.json("Your new favorite was added. It is: "+newfav);
+                    res.json("Your new favorite was added. It is: "+item_id);
                     db.close();
                 });
         });
@@ -177,11 +176,11 @@ app.post("/removefavorite", (req, res, next) => {
 console.log('Favorite to be removed: ',req.body.item_id);
     var query=req.body;//search by all parameters given in
     var userId=ObjectId(req.body._id);
-var partId=req.body.item_id;
+    var partId=req.body.item_id;
     //
     var auth=req.body.author;
-//	var newfav=req.body.new_fav;
-//
+    //	var newfav=req.body.new_fav;
+    //
     MongoClient.connect(gurl,{useNewUrlParser: true }, function(err, db) {
             if (err)
                 throw err;
