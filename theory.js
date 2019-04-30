@@ -120,6 +120,64 @@ app.post("/getnotes", (req, res, next) => {
 
     });
 //////
+app.post("/notebyid", (req, res, next) => {
+        console.log('body: ', req.body);
+        var key=ObjectId(req.body._id);
+        MongoClient.connect(gurl,{useNewUrlParser: true }, function(err, db) {
+                if (err)
+                    throw err;
+                var dbo = db.db("mockdb");
+                dbo.collection("users").find(key).toArray(function(err, result) {
+                        if (err) throw err;
+                        res.json(result);
+                        db.close();
+                    });
+            });
+
+    });
+//////
+app.post("/addfavorite", (req, res, next) => {
+    console.log('body: ', req.body);
+    var query=req.body;//search by all parameters given in
+    var searchId=ObjectId(req.body._id);
+    //                                                                                                    
+    var auth=req.body.author;
+var newfav=req.body.new_fav;
+    //
+    MongoClient.connect(gurl,{useNewUrlParser: true }, function(err, db) {
+            if (err)
+                throw err;
+            var dbo = db.db("mockdb");
+            dbo.collection("users").updateOne({"_id":searchId},{"$push":{"favorites":req.body.new_fav}},function(err, result) {
+                    if (err) throw err;
+                    res.json("Your new favorite was added. It is: "+newfav);
+                    db.close();
+                });
+        });
+});
+//////
+app.post("/removefavorite", (req, res, next) => {
+    console.log('body: ', req.body);
+console.log('Favorite to be removed: ',req.body.item_id);
+    var query=req.body;//search by all parameters given in
+    var userId=ObjectId(req.body._id);
+var partId=req.body.item_id;
+    //
+    var auth=req.body.author;
+//	var newfav=req.body.new_fav;
+//
+    MongoClient.connect(gurl,{useNewUrlParser: true }, function(err, db) {
+            if (err)
+                throw err;
+            var dbo = db.db("mockdb");
+            dbo.collection("users").updateOne({"_id":userId},{"$pull":{"favorites":req.body.item_id}},function(err, result) {
+                    if (err) throw err;
+                    res.json("Favorite removed: ");
+                    db.close();
+                });
+        });
+});
+//////
 var url = "mongodb://localhost:27017/";
 app.listen(3000,() =>{
 	console.log("Server running on port 3000");
